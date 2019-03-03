@@ -1,5 +1,9 @@
-FROM alpine:3.8
+FROM 274264184871.dkr.ecr.us-east-1.amazonaws.com/base-image
 
-RUN apk update
+ENV PORT=80
 
-RUN apk add nodejs
+EXPOSE $PORT
+
+COPY app.js /app/
+
+CMD ["node", "/app/app.js"]
